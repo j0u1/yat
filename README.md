@@ -1,4 +1,4 @@
-### yat
+## yat
 
 Стек: `Vite`, `JS`, `React`, `Tailwind`, `Bun`
 
