@@ -1,6 +1,6 @@
 ### yat
 
-#### Стек: `Vite`, `React`, `Tailwind`, `Bun`
+Стек: `Vite`, `React`, `Tailwind`, `Bun`
   ![stack](https://skillicons.dev/icons?i=vite,react,tailwind,bun)
 ___
 
