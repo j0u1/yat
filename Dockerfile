@@ -5,7 +5,7 @@ FROM oven/bun:1.1-alpine AS build
 WORKDIR /app
 
 # Копируем только файлы зависимостей для эффективного кэширования слоев
-COPY package.json bun.lockb ./
+COPY package.json bun.lock ./
 
 # Устанавливаем зависимости
 RUN bun install --frozen-lockfile
