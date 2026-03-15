@@ -3,7 +3,10 @@ import Todo from "./components/Todo";
 import TodoForm from "./components/TodoForm.jsx";
 
 export default function App() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(() => {
+    const saved = localStorage.getItem("todos");
+    return saved ? JSON.parse(saved) : [];
+  });
 
   const addTask = (userInput) => {
     if (userInput) {
@@ -12,13 +15,17 @@ export default function App() {
         task: userInput,
         complete: false,
       };
+      localStorage.setItem("todos", JSON.stringify([...todos, newItem]));
       setTodos([...todos, newItem]);
     }
   };
 
-  const removeTask = (id) => {
-    setTodos([...todos.filter((todo) => todo.id !== id)]);
-  };
+const removeTask = (id) => {
+  const updatedTodos = todos.filter((todo) => todo.id !== id);
+
+  setTodos(updatedTodos);
+  localStorage.setItem("todos", JSON.stringify(updatedTodos));
+};
 
   const handleToggle = (id) => {
     setTodos([
